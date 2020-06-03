@@ -152,6 +152,10 @@ RSpec.configure do |config|
       to_return(status: 200, body: "", headers: {})
   end
 
+  config.after(:all) do
+    Timecop.return
+  end
+
   OmniAuth.config.test_mode = true
   OmniAuth.config.logger = Rails.logger
 
