@@ -86,6 +86,7 @@ RSpec.configure do |config|
   end
 
   config.before do
+    allow(Percy).to receive(:snapshot)
     Sidekiq::Worker.clear_all # worker jobs shouldn't linger around between tests
   end
 
